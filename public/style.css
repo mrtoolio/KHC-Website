@@ -1,6 +1,6 @@
 /* ---
    KHC Global Services - Stylesheet
-   Designed by CC - V2
+   Designed by CC - V3 (Reinforced & Corrected)
 --- */
 
 /* ------------------- */
@@ -150,8 +150,8 @@ body {
 }
 
 .logo img {
-    height: 45px; /* Perfect height for the logo icon */
-    width: auto; /* Maintains aspect ratio, preventing distortion */
+    height: 45px;
+    width: auto;
 }
 
 .nav-links {
@@ -196,7 +196,7 @@ body {
 /* HERO SECTION        */
 /* ------------------- */
 .hero-section {
-    background: linear-gradient(rgba(248, 249, 250, 0.8), rgba(248, 249, 250, 0.8)), url('https://images.unsplash.com/photo-1528740561666-dc2479703592?q=80&w=1974&auto-format&fit=crop') no-repeat center center/cover;
+    background: linear-gradient(rgba(248, 249, 250, 0.8), rgba(248, 249, 250, 0.8)), url('https://images.unsplash.com/photo-1528740561666-dc2479703592?q=80&w=1974&auto=format&fit=crop') no-repeat center center/cover;
     min-height: 80vh;
     display: flex;
     align-items: center;
@@ -306,7 +306,7 @@ body {
 }
 
 /* ------------------- */
-/* WOW FACTOR SECTION  */
+/* WOW FACTOR SECTION (RE-ENGINEERED) */
 /* ------------------- */
 .wow-section {
     padding: 6rem 0;
@@ -321,6 +321,7 @@ body {
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     aspect-ratio: 16/9;
+    cursor: ew-resize;
 }
 
 .comparison-image {
@@ -339,6 +340,10 @@ body {
     display: block;
 }
 
+.before-image {
+    filter: grayscale(100%);
+}
+
 .image-label {
     position: absolute;
     top: 1rem;
@@ -355,22 +360,6 @@ body {
 .after-image {
     clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
 }
-
-.slider {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 100%;
-    height: 100%;
-    background: transparent;
-    outline: none;
-    margin: 0;
-    position: relative;
-    z-index: 3;
-    cursor: ew-resize;
-}
-
-.slider::-webkit-slider-thumb { -webkit-appearance: none; }
-.slider::-moz-range-thumb { border: none; background: none; }
 
 .slider-line {
     position: absolute;
@@ -401,6 +390,7 @@ body {
     pointer-events: none;
     z-index: 2;
 }
+
 
 /* ------------------- */
 /* ABOUT SECTION       */
@@ -657,7 +647,7 @@ body {
     html { font-size: 15px; }
     
     .logo span {
-        display: none; /* Hide text logo on small screens */
+        display: none;
     }
 
     .nav-links {
@@ -688,4 +678,6 @@ body {
     .trust-grid { justify-content: flex-start; }
     
     .contact-wrapper { padding: 2rem; }
-}
+}```
+
+---
