@@ -1,434 +1,151 @@
 ---
+// CC's Note: This is the main homepage content.
+// It imports the master Layout and fills its <slot />.
 import Layout from '../layouts/Layout.astro';
-import ContextAlert from '../components/ContextAlert.astro';
-import Markdown from '../components/Markdown.astro';
-
-const heroContent = `
-# KHC Global Services
-## Professional Janitorial & Cleaning Excellence
-
-Transform your spaces with trusted cleaning professionals. We serve offices, hotels, stadiums, shopping centres, and homes across the region with premium Jangro products and fully trained, insured staff.
-`;
-
-const servicesIntro = `
-Comprehensive cleaning solutions tailored to your needs - from routine maintenance to specialized deep cleaning services.
-`;
 ---
 
-<Layout title="KHC Global Services - Premium Janitorial & Cleaning Services">
-    <style>
-        .hero-section {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 20px;
-            padding: 4rem 2rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-        
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-        
-        .service-card {
-            background: linear-gradient(145deg, #ffffff, #f8fafc);
-            padding: 2rem;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border: 1px solid #e2e8f0;
-            transition: all 0.3s ease;
-            color: #1a202c;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        }
-        
-        .service-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-        
-        .trust-section {
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            padding: 3rem 2rem;
-            border-radius: 20px;
-            margin: 3rem 0;
-            color: white;
-            text-align: center;
-        }
-        
-        .trust-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .trust-item {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            padding: 1rem;
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 12px;
-            backdrop-filter: blur(10px);
-        }
-        
-        .checkmark {
-            color: #22c55e;
-            font-size: 1.5rem;
-            font-weight: bold;
-            flex-shrink: 0;
-            width: 24px;
-            height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: white;
-            border-radius: 50%;
-        }
-        
-        .contact-section {
-            background: linear-gradient(135deg, #1e293b, #334155);
-            padding: 3rem 2rem;
-            border-radius: 20px;
-            text-align: center;
-            color: white;
-        }
-        
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-        
-        .contact-item {
-            padding: 1.5rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            backdrop-filter: blur(10px);
-        }
-        
-        .cta-buttons {
-            display: flex;
-            flex-direction: column;
-            sm:flex-direction: row;
-            gap: 1rem;
-            justify-content: center;
-            align-items: center;
-            margin: 2rem 0;
-        }
-        
-        .btn-primary {
-            background: linear-gradient(135deg, #ef4444, #dc2626);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            min-width: 200px;
-            justify-content: center;
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(239, 68, 68, 0.3);
-        }
-        
-        .btn-secondary {
-            background: linear-gradient(135deg, #3b82f6, #2563eb);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            min-width: 200px;
-            justify-content: center;
-        }
-        
-        .btn-secondary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
-        }
-        
-        .page-container {
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-            min-height: 100vh;
-            padding: 2rem 1rem;
-            color: #1a202c;
-        }
-        
-        .content-wrapper {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        h2 {
-            font-size: 2rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-        
-        .service-title {
-            color: #4f46e5;
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-    </style>
-    
-    <div class="page-container">
-        <div class="content-wrapper">
-            <!-- Hero Section -->
-            <div class="hero-section">
-                <div class="hero-content">
-                    <Markdown content={heroContent} />
-                    <div class="cta-buttons">
-                        <a href="tel:+2347015744444" class="btn-primary">
-                            📞 Call Now: +234 701 574 4444
-                        </a>
-                        <a href="mailto:info@khcglobalservices.com" class="btn-secondary">
-                            ✉️ Get Free Estimate
-                        </a>
+<Layout>
+    <main>
+        <!-- Home/Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="hero-content container animate-on-scroll fade-in">
+                <h1 class="hero-title">Pristine Spaces, Professional Care.</h1>
+                <p class="hero-subtitle">Your one-stop shop for a cleaner, healthier, and more valuable property. We give you the precious gift of time.</p>
+                <div class="hero-cta">
+                    <a href="#contact" class="btn btn-primary">Get a Free Quote</a>
+                    <a href="#services" class="btn btn-secondary">Explore Services</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services-section">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll fade-in-up">Our Comprehensive Services</h2>
+                <div class="services-grid">
+                    <!-- Service Card 1 -->
+                    <div class="service-card animate-on-scroll fade-in-up">
+                        <div class="service-icon"><i class="fas fa-broom"></i></div>
+                        <h3 class="service-title">Janitorial & Cleaning</h3>
+                        <p class="service-description">Meticulous cleaning for residential and commercial properties, ensuring a spotless and healthy environment.</p>
+                    </div>
+                    <!-- Service Card 2 -->
+                    <div class="service-card animate-on-scroll fade-in-up" style="animation-delay: 0.2s;">
+                        <div class="service-icon"><i class="fas fa-building-shield"></i></div>
+                        <h3 class="service-title">Facility Management</h3>
+                        <p class="service-description">Comprehensive management solutions to keep your buildings running smoothly and efficiently.</p>
+                    </div>
+                    <!-- Service Card 3 -->
+                    <div class="service-card animate-on-scroll fade-in-up" style="animation-delay: 0.4s;">
+                        <div class="service-icon"><i class="fas fa-bug-slash"></i></div>
+                        <h3 class="service-title">Fumigation & Pest Control</h3>
+                        <p class="service-description">Effective and safe pest eradication services to protect your property and health.</p>
+                    </div>
+                    <!-- Service Card 4 -->
+                    <div class="service-card animate-on-scroll fade-in-up" style="animation-delay: 0.6s;">
+                        <div class="service-icon"><i class="fas fa-shopping-cart"></i></div>
+                        <h3 class="service-title">Cleaning Supplies</h3>
+                        <p class="service-description">Sale of professional-grade cleaning products and equipment for your own use.</p>
                     </div>
                 </div>
             </div>
-
-            <!-- Services Section -->
-            <div style="text-align: center; margin-bottom: 3rem;">
-                <h2>Our Premium Services</h2>
-                <p style="font-size: 1.2rem; color: #64748b; max-width: 600px; margin: 0 auto;">
-                    {servicesIntro}
-                </p>
+        </section>
+        
+        <!-- Wow Factor: Before & After Slider -->
+        <section id="wow-factor" class="wow-section">
+            <div class="container animate-on-scroll fade-in">
+                <h2 class="section-title">The KHC Difference, Visualized.</h2>
+                <div class="comparison-slider">
+                    <div class="comparison-image before-image">
+                        <img src="https://images.unsplash.com/photo-1585421514738-017996340317?q=80&w=2070&auto=format&fit=crop" alt="Messy room before cleaning">
+                        <p class="image-label">Before</p>
+                    </div>
+                    <div class="comparison-image after-image">
+                        <img src="https://images.unsplash.com/photo-1560185127-6ed189bf02a4?q=80&w=2070&auto=format&fit=crop" alt="Clean and tidy room">
+                        <p class="image-label">After</p>
+                    </div>
+                    <input type="range" min="0" max="100" value="50" class="slider" aria-label="Compare before and after images">
+                    <div class="slider-line"></div>
+                    <div class="slider-button" aria-hidden="true"><i class="fas fa-arrows-left-right"></i></div>
+                </div>
             </div>
-            
-            <div class="services-grid">
-                <div class="service-card">
-                    <span class="service-icon">🏢</span>
-                    <h3 class="service-title">Commercial Janitorial</h3>
-                    <ul style="text-align: left; line-height: 1.8;">
-                        <li>Office blocks and business centres</li>
-                        <li>Hotels and hospitality venues</li>
-                        <li>Sports stadiums and event spaces</li>
-                        <li>Shopping centres and retail</li>
-                        <li>Public facilities and institutions</li>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="about-section">
+            <div class="container about-content">
+                <div class="about-text animate-on-scroll fade-in-up">
+                    <h2 class="section-title">Trustworthy, Efficient, Meticulous</h2>
+                    <p>Founded on the principle of delivering excellence, KHC Global Services has grown to become a leading name in Nigeria’s maintenance industry. Our team is our greatest asset—fully trained, insured, and passionate about creating clean, healthy, and safe environments. We combine modern technology with a meticulous work ethic to deliver results that don't just meet expectations, but exceed them.</p>
+                    <p>Our commitment is to you: your time, your health, and the value of your property. We are more than a service provider; we are your dedicated partner in property care.</p>
+                </div>
+                <div class="about-image animate-on-scroll fade-in-up" style="animation-delay: 0.2s;">
+                    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=2070&auto=format&fit=crop" alt="KHC professional team members smiling">
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="testimonials-section">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll fade-in-up">What Our Clients Say</h2>
+                <div class="testimonials-grid">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-card animate-on-scroll fade-in-up">
+                        <p class="testimonial-quote">"KHC transformed our office space. Their professionalism and attention to detail are unmatched. Highly recommended!"</p>
+                        <p class="testimonial-author">- Facility Manager, Lagos</p>
+                    </div>
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-card animate-on-scroll fade-in-up" style="animation-delay: 0.2s;">
+                        <p class="testimonial-quote">"As a busy homeowner, their service is a lifesaver. I got my weekends back and my home has never looked better. Trustworthy team."</p>
+                        <p class="testimonial-author">- Adeola J., Homeowner</p>
+                    </div>
+                     <!-- Testimonial 3 -->
+                    <div class="testimonial-card animate-on-scroll fade-in-up" style="animation-delay: 0.4s;">
+                        <p class="testimonial-quote">"The fumigation service was thorough and efficient. The KHC team was professional and explained the process clearly."</p>
+                        <p class="testimonial-author">- Hotel Manager, Ikeja</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="container contact-wrapper">
+                <div class="contact-info animate-on-scroll fade-in-up">
+                    <h2 class="section-title">Get In Touch</h2>
+                    <p>Ready for a cleaner space? Contact us today for a free, no-obligation quote. We’re here to help.</p>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +234 123 456 7890</li>
+                        <li><i class="fas fa-envelope"></i> info@khcglobalservices.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Ikeja, Lagos, Nigeria</li>
                     </ul>
                 </div>
-                
-                <div class="service-card">
-                    <span class="service-icon">🏠</span>
-                    <h3 class="service-title">Residential Cleaning</h3>
-                    <ul style="text-align: left; line-height: 1.8;">
-                        <li>Home maintenance and deep cleaning</li>
-                        <li>Regular housekeeping services</li>
-                        <li>Move-in/move-out cleaning</li>
-                        <li>One-time and recurring services</li>
-                        <li>Post-construction cleanup</li>
-                    </ul>
-                </div>
-                
-                <div class="service-card">
-                    <span class="service-icon">🔧</span>
-                    <h3 class="service-title">Building Maintenance</h3>
-                    <ul style="text-align: left; line-height: 1.8;">
-                        <li>Facility upkeep and repairs</li>
-                        <li>Preventive maintenance programs</li>
-                        <li>Emergency cleaning response</li>
-                        <li>Specialized surface treatments</li>
-                        <li>Fumigation services</li>
-                    </ul>
-                </div>
-                
-                <div class="service-card">
-                    <span class="service-icon">🧽</span>
-                    <h3 class="service-title">Premium Products</h3>
-                    <ul style="text-align: left; line-height: 1.8;">
-                        <li>Exclusive Jangro cleaning chemicals</li>
-                        <li>Professional-grade equipment</li>
-                        <li>100% satisfaction guarantee</li>
-                        <li>Eco-friendly options available</li>
-                        <li>Tested and certified products</li>
-                    </ul>
-                </div>
+                <form class="contact-form animate-on-scroll fade-in-up" style="animation-delay: 0.2s;">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Service of Interest</label>
+                        <select id="service" name="service">
+                            <option>General Cleaning</option>
+                            <option>Facility Management</option>
+                            <option>Fumigation</option>
+                            <option>Supply Purchase</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
             </div>
-
-            <!-- Trust Section with Perfect Alignment -->
-            <div class="trust-section">
-                <h2 style="margin-bottom: 2rem;">Why Choose KHC Global Services?</h2>
-                
-                <div class="trust-grid">
-                    <div class="trust-item">
-                        <span class="checkmark">✓</span>
-                        <div>
-                            <strong>Fully Insured & Bonded</strong><br>
-                            Complete peace of mind
-                        </div>
-                    </div>
-                    
-                    <div class="trust-item">
-                        <span class="checkmark">✓</span>
-                        <div>
-                            <strong>Trained Professionals</strong><br>
-                            Experienced, reliable staff
-                        </div>
-                    </div>
-                    
-                    <div class="trust-item">
-                        <span class="checkmark">✓</span>
-                        <div>
-                            <strong>Quality Guarantee</strong><br>
-                            100% satisfaction or money back
-                        </div>
-                    </div>
-                    
-                    <div class="trust-item">
-                        <span class="checkmark">✓</span>
-                        <div>
-                            <strong>Premium Products</strong><br>
-                            Jangro certified chemicals
-                        </div>
-                    </div>
-                    
-                    <div class="trust-item">
-                        <span class="checkmark">✓</span>
-                        <div>
-                            <strong>Flexible Scheduling</strong><br>
-                            One-time or recurring services
-                        </div>
-                    </div>
-                    
-                    <div class="trust-item">
-                        <span class="checkmark">✓</span>
-                        <div>
-                            <strong>Emergency Response</strong><br>
-                            Available 24/7 when needed
-                        </div>
-                    </div>
-                </div>
-                
-                <div style="margin-top: 2rem; padding: 2rem; background: rgba(255, 255, 255, 0.15); border-radius: 12px; backdrop-filter: blur(10px);">
-                    <em style="font-size: 1.2rem; font-style: italic;">
-                        "Our goal is to preserve and enhance the value, life and beauty of your property while providing you with the precious gift of extra time."
-                    </em>
-                </div>
-            </div>
-
-            <!-- Contact Section -->
-            <div class="contact-section">
-                <h2 style="margin-bottom: 1rem;">Ready to Get Started?</h2>
-                <p style="font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9;">
-                    Contact KHC Global Services today for professional cleaning solutions
-                </p>
-                
-                <div class="contact-grid">
-                    <div class="contact-item">
-                        <div style="font-size: 2rem; margin-bottom: 1rem;">📞</div>
-                        <h3 style="color: #60a5fa; margin-bottom: 0.5rem;">Primary</h3>
-                        <p style="font-weight: 600;">+234 701 574 4444</p>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div style="font-size: 2rem; margin-bottom: 1rem;">📱</div>
-                        <h3 style="color: #60a5fa; margin-bottom: 0.5rem;">Alternative</h3>
-                        <p style="font-weight: 600;">+234 818 075 1853</p>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div style="font-size: 2rem; margin-bottom: 1rem;">✉️</div>
-                        <h3 style="color: #60a5fa; margin-bottom: 0.5rem;">Email</h3>
-                        <p style="font-weight: 600;">info@khcglobalservices.com</p>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div style="font-size: 2rem; margin-bottom: 1rem;">🕒</div>
-                        <h3 style="color: #60a5fa; margin-bottom: 0.5rem;">Hours</h3>
-                        <p style="font-weight: 600;">Mon-Fri: 8AM-6PM<br>Emergency: 24/7</p>
-                    </div>
-                </div>
-                
-                <div class="cta-buttons" style="margin-top: 2rem;">
-                    <a href="tel:+2347015744444" class="btn-primary">
-                        📞 Call for Immediate Service
-                    </a>
-                    <a href="https://kwaljhillcrest.com/" class="btn-secondary">
-                        🛒 Shop Cleaning Supplies
-                    </a>
-                </div>
-            </div>
-
-            <!-- Partners Section -->
-            <div style="text-align: center; margin: 3rem 0; padding: 2rem; background: white; border-radius: 16px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);">
-                <h2 style="color: #1a202c; margin-bottom: 2rem;">Trusted Partners</h2>
-                <p style="color: #64748b; margin-bottom: 2rem;">We work with industry-leading suppliers to deliver exceptional results</p>
-                
-                <div style="display: flex; justify-content: center; align-items: center; gap: 3rem; flex-wrap: wrap;">
-                    <div style="padding: 1rem; background: #f8fafc; border-radius: 8px; border: 2px solid #e2e8f0;">
-                        <strong style="color: #059669; font-size: 1.5rem;">JANGRO</strong><br>
-                        <span style="color: #64748b;">Premium Chemicals</span>
-                    </div>
-                    <div style="padding: 1rem; background: #f8fafc; border-radius: 8px; border: 2px solid #e2e8f0;">
-                        <strong style="color: #dc2626; font-size: 1.5rem;">NUMATIC</strong><br>
-                        <span style="color: #64748b;">Professional Equipment</span>
-                    </div>
-                    <div style="padding: 1rem; background: #f8fafc; border-radius: 8px; border: 2px solid #e2e8f0;">
-                        <strong style="color: #7c3aed; font-size: 1.5rem;">VONTIKO</strong><br>
-                        <span style="color: #64748b;">Manufacturing</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+        </section>
+    </main>
 </Layout>
