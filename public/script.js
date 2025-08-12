@@ -1,6 +1,6 @@
 // ---
 // KHC Global Services - Interactive Script
-// Coded by Maestro
+// Stable V2 Foundation with Re-Engineered Slider
 // ---
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -49,45 +49,63 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /**
-     * "Before & After" Interactive Comparison Slider
+     * RE-ENGINEERED: "Before & After" Slider with Smooth Drag
+     * This replaces the default input range with a custom drag listener.
      */
-    const slider = document.querySelector('.comparison-slider .slider');
-    if (slider) {
-        const afterImage = document.querySelector('.comparison-slider .after-image');
-        const sliderLine = document.querySelector('.comparison-slider .slider-line');
-        const sliderButton = document.querySelector('.comparison-slider .slider-button');
+    const sliderContainer = document.querySelector('.comparison-slider');
+    if (sliderContainer) {
+        // We no longer need the <input> slider, this is a direct drag implementation.
+        const afterImage = sliderContainer.querySelector('.after-image');
+        const sliderLine = sliderContainer.querySelector('.slider-line');
+        const sliderButton = sliderContainer.querySelector('.slider-button');
+        let isDragging = false;
 
-        function updateSlider(value) {
-            const percentage = value + '%';
+        // Function to update the visuals based on cursor/finger position
+        const setSliderPosition = (x) => {
+            const containerRect = sliderContainer.getBoundingClientRect();
+            let position = (x - containerRect.left) / containerRect.width;
+            
+            // Clamp position between 0 and 1 (0% and 100%)
+            position = Math.max(0, Math.min(1, position));
+
+            const percentage = position * 100 + '%';
             afterImage.style.clipPath = `polygon(${percentage} 0, 100% 0, 100% 100%, ${percentage} 100%)`;
             sliderLine.style.left = percentage;
             sliderButton.style.left = percentage;
-        }
-        slider.addEventListener('input', (e) => updateSlider(e.target.value));
-        updateSlider(slider.value); // Initialize
-    }
+        };
 
-    /**
-     * Accordion Logic for Services Section
-     */
-    const accordionItems = document.querySelectorAll('.accordion-item');
-    accordionItems.forEach(item => {
-        const trigger = item.querySelector('.accordion-trigger');
-        const panel = item.querySelector('.accordion-panel');
-        trigger.addEventListener('click', () => {
-            const isActive = item.classList.contains('active');
-            accordionItems.forEach(otherItem => {
-                otherItem.classList.remove('active');
-                otherItem.querySelector('.accordion-trigger').setAttribute('aria-expanded', 'false');
-                otherItem.querySelector('.accordion-panel').style.maxHeight = null;
-            });
-            if (!isActive) {
-                item.classList.add('active');
-                trigger.setAttribute('aria-expanded', 'true');
-                panel.style.maxHeight = panel.scrollHeight + "px";
+        // Mouse Events for Desktop
+        sliderContainer.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            e.preventDefault(); // Prevents text selection while dragging
+        });
+
+        document.addEventListener('mouseup', () => {
+            isDragging = false;
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (isDragging) {
+                setSliderPosition(e.clientX);
             }
         });
-    });
+
+        // Touch Events for Mobile
+        sliderContainer.addEventListener('touchstart', (e) => {
+            isDragging = true;
+            e.preventDefault();
+        });
+
+        document.addEventListener('touchend', () => {
+            isDragging = false;
+        });
+
+        document.addEventListener('touchmove', (e) => {
+            if (isDragging && e.touches.length > 0) {
+                setSliderPosition(e.touches[0].clientX);
+            }
+        });
+    }
 
     /**
      * About Us Image Carousel
