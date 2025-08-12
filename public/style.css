@@ -138,12 +138,9 @@ body {
     height: 80px;
 }
 
-.logo {
-    font-family: var(--font-heading);
-    font-weight: 700;
-    font-size: 1.5rem;
-    color: var(--primary-color);
-    text-decoration: none;
+.logo img {
+    max-height: 55px; /* Controls the height of the logo */
+    width: auto;
 }
 
 .nav-links {
@@ -563,23 +560,18 @@ body {
     display: flex;
     align-items: center;
     gap: 1rem;
-}
-
 .contact-info li i {
     color: var(--primary-color);
     font-size: 1.5rem;
 }
-
 .contact-form .form-group {
     margin-bottom: 1.5rem;
 }
-
 .contact-form label {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: bold;
 }
-
 .contact-form input,
 .contact-form textarea,
 .contact-form select {
@@ -590,13 +582,11 @@ body {
     font-family: var(--font-body);
     font-size: 1rem;
 }
-
 .contact-form button {
     width: 100%;
     padding: 1rem;
     font-size: 1.1rem;
 }
-
 /* ------------------- */
 /* FOOTER              */
 /* ------------------- */
@@ -609,7 +599,6 @@ body {
 .main-footer-section p {
     color: #ccc;
 }
-
 /* ------------------- */
 /* ANIMATIONS          */
 /* ------------------- */
@@ -617,21 +606,16 @@ body {
     opacity: 0;
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
-
 .fade-in {
     transform: translateY(20px);
 }
-
 .fade-in-up {
     transform: translateY(40px);
 }
-
 .animate-on-scroll.is-visible {
     opacity: 1;
     transform: translateY(0);
 }
-
-
 /* ------------------- */
 /* RESPONSIVE DESIGN   */
 /* ------------------- */
@@ -645,11 +629,8 @@ body {
         text-align: center;
     }
 }
-
-
 @media (max-width: 768px) {
     html { font-size: 15px; }
-
     .nav-links {
         position: fixed;
         top: 80px;
@@ -665,19 +646,16 @@ body {
         transform: translateX(100%);
         transition: transform 0.3s ease-in-out;
     }
-
     .nav-links.active {
         transform: translateX(0);
     }
     
     .nav-links a { font-size: 1.5rem; }
-
     .hamburger { display: block; z-index: 1001; }
     
     .hero-title { font-size: 2.8rem; }
     .hero-section { text-align: center; justify-content: center; }
     .hero-cta { flex-direction: column; align-items: center;}
-
     .trust-grid { justify-content: flex-start; }
     
     .contact-wrapper { padding: 2rem; }
