@@ -630,24 +630,41 @@ body {
     opacity: 1;
     transform: translateY(0);
 }
-/* ------------------- */
-/* RESPONSIVE DESIGN   */
-/* ------------------- */
+
+/* ---
+   FINAL & CORRECTED RESPONSIVE BLUEPRINT
+   Maestro's Definitive Version
+--- */
+
+/* For Tablets and Smaller (<= 992px) */
 @media (max-width: 992px) {
-    .about-content, .contact-wrapper {
+    .about-content, 
+    .contact-wrapper {
         grid-template-columns: 1fr;
         gap: 3rem;
     }
     
-    .about-text .section-title, .contact-info .section-title {
+    .about-text .section-title, 
+    .contact-info .section-title {
         text-align: center;
     }
+
+    /* This rule ensures the text is visible and sized correctly on tablets */
+    .logo h4 {
+        display: block; /* Ensures it is visible */
+        font-size: 1.3rem;
+    }
 }
+
+/* For Mobile Devices (<= 768px) */
 @media (max-width: 768px) {
-    html { font-size: 15px; }
+    html { 
+        font-size: 15px; 
+    }
     
-    .logo span {
-        display: none;
+    /* This overrides any previous rule and shrinks the logo text for phones */
+    .logo h4 {
+        font-size: 1.1rem; 
     }
 
     .nav-links {
@@ -669,31 +686,42 @@ body {
         transform: translateX(0);
     }
     
-    .nav-links a { font-size: 1.5rem; }
-    .hamburger { display: block; z-index: 1001; }
+    .nav-links a { 
+        font-size: 1.5rem; 
+    }
     
-    .hero-title { font-size: 2.8rem; }
-    .hero-section { text-align: center; justify-content: center; }
-    .hero-cta { flex-direction: column; align-items: center;}
-    .trust-grid { justify-content: flex-start; }
+    .hamburger { 
+        display: block; 
+        z-index: 1001; 
+    }
     
-    .contact-wrapper { padding: 2rem; }
-
-/* =========================================
-   Mobile Header Text Fix
-   ========================================= */
-
-@media (max-width: 991.98px) {
-  .navbar-brand h4 {
-    display: block !important;
-    font-size: 1rem;
-    margin-left: 8px;
-  }
+    .hero-title { 
+        font-size: 2.8rem; 
+    }
+    
+    .hero-section { 
+        text-align: center; 
+        justify-content: center; 
+    }
+    
+    .hero-cta { 
+        flex-direction: column; 
+        align-items: center;
+    }
+    
+    .trust-grid { 
+        justify-content: flex-start; 
+    }
+    
+    .contact-wrapper { 
+        padding: 2rem; 
+    }
 }
 
-@media (max-width: 380px) {
-  .navbar-brand h4 {
-    font-size: 0.85rem;
-  }
-}
+/* For very small mobile screens (<= 420px) */
+@media (max-width: 420px) {
+    .logo h4 {
+        font-size: 1rem;
+        margin-left: 8px; /* Slight gap from logo */
+    }
 }
