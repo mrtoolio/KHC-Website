@@ -2,19 +2,99 @@
 import Layout from '../layouts/Layout.astro';
 import ContextAlert from '../components/ContextAlert.astro';
 import Markdown from '../components/Markdown.astro';
-const explainer = `
-KHC Global provides professional janitorial, cleaning services, and building maintenance for homes and businesses. We serve office blocks, hotels, sports stadiums, concert venues, shopping centres, and residential properties.
 
-Our trained, experienced, insured and bonded staff use high-quality [Jangro cleaning products](https://www.jangro.net/) with a 100% satisfaction guarantee. We enhance the look, beauty, and healthiness of your property while giving you the precious gift of extra time.
+const heroContent = `
+# Professional Janitorial & Cleaning Services
 
-**Services include:** Office cleaning, residential maintenance, commercial janitorial, specialized cleaning solutions, and building maintenance.
+**Trusted by businesses and homeowners across the region**
+
+Kwalj Hill Crest provides comprehensive cleaning solutions with trained, experienced, insured and bonded staff. We enhance the look, beauty and healthiness of your property using premium Jangro cleaning products.
+`;
+
+const servicesContent = `
+## Our Services
+
+### 🏢 Commercial Janitorial
+- Office blocks and business centres
+- Hotels and hospitality venues  
+- Sports stadiums and event spaces
+- Shopping centres and retail spaces
+- Public facilities and institutions
+
+### 🏠 Residential Cleaning
+- Home maintenance and deep cleaning
+- Regular housekeeping services
+- Move-in/move-out cleaning
+- One-time and recurring services
+
+### 🔧 Building Maintenance
+- Facility upkeep and repairs
+- Preventive maintenance programs
+- Emergency cleaning response
+- Specialized surface treatments
+
+### 🧽 Premium Products
+We exclusively use **Jangro cleaning products** - high-quality chemicals with 100% satisfaction guarantee. Tested, tried and certified by our existing customers for professional results.
+`;
+
+const trustContent = `
+## Why Choose Kwalj Hill Crest?
+
+✅ **Fully Insured & Bonded** - Complete peace of mind  
+✅ **Trained Professionals** - Experienced, reliable staff  
+✅ **Quality Guarantee** - 100% satisfaction or money back  
+✅ **Premium Products** - Jangro certified cleaning chemicals  
+✅ **Flexible Scheduling** - One-time or recurring services  
+✅ **Emergency Response** - Available when you need us most  
+
+*"Our goal is to preserve and enhance the value, life and beauty of your property while providing you with the precious gift of extra time."*
 `;
 ---
-<Layout title="KHC Global - Professional Cleaning Services">
+
+<Layout title="Kwalj Hill Crest - Professional Janitorial & Cleaning Services">
     <ContextAlert class="mb-8" />
-    <h1 class="mb-10">KHC Global Services/h1>
-    <Markdown content={explainer} class="mb-10 text-lg" />
-    <p>
-        <a href="tel:+234 701 574 4444" class="btn btn-lg sm:min-w-64">Call for Free Quote</a>
-    </p>
+    
+    <!-- Hero Section -->
+    <div class="mb-12">
+        <Markdown content={heroContent} class="mb-8 text-center" />
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <a href="tel:+44XXXXXXXXXX" class="btn btn-lg sm:min-w-64 bg-primary text-white hover:bg-primary-dark">
+                📞 Call for Free Quote
+            </a>
+            <a href="mailto:info@khcglobalservices.com" class="btn btn-lg sm:min-w-64 btn-outline">
+                ✉️ Get Written Estimate
+            </a>
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <div class="mb-12">
+        <Markdown content={servicesContent} class="mb-8" />
+    </div>
+
+    <!-- Trust & Quality Section -->
+    <div class="mb-12 p-8 bg-gray-800 rounded-lg border border-gray-700">
+        <Markdown content={trustContent} class="text-center" />
+    </div>
+
+    <!-- Contact Information -->
+    <div class="text-center p-6 bg-gray-900 rounded-lg">
+        <h2 class="text-2xl font-bold mb-4">Ready to Get Started?</h2>
+        <p class="text-lg mb-6">Contact Kwalj Hill Crest today for professional cleaning solutions</p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+            <div>
+                <h3 class="font-semibold text-primary mb-2">📞 Phone</h3>
+                <p>Call: +44 XXX XXX XXXX</p>
+            </div>
+            <div>
+                <h3 class="font-semibold text-primary mb-2">✉️ Email</h3>
+                <p>info@khcglobalservices.com</p>
+            </div>
+            <div>
+                <h3 class="font-semibold text-primary mb-2">🕒 Hours</h3>
+                <p>Mon-Fri: 8AM-6PM<br>Emergency: 24/7</p>
+            </div>
+        </div>
+    </div>
 </Layout>
