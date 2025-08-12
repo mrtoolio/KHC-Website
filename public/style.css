@@ -678,4 +678,22 @@ body {
     .trust-grid { justify-content: flex-start; }
     
     .contact-wrapper { padding: 2rem; }
+
+/* =========================================
+   Mobile Header Text Fix
+   ========================================= */
+
+@media (max-width: 991.98px) {
+  .navbar-brand h4 {
+    display: block !important;
+    font-size: 1rem;
+    margin-left: 8px;
+  }
+}
+
+@media (max-width: 380px) {
+  .navbar-brand h4 {
+    font-size: 0.85rem;
+  }
+}
 }
