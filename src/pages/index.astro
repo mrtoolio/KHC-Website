@@ -1,6 +1,6 @@
 ---
-// CC's Note: This is the main homepage content.
-// It imports the master Layout and fills its <slot />.
+// CC's Note: This is the final, correct homepage content.
+// It imports the master Layout and fills its <slot /> with all enhancements.
 import Layout from '../layouts/Layout.astro';
 ---
 
@@ -18,50 +18,60 @@ import Layout from '../layouts/Layout.astro';
             </div>
         </section>
 
-        <!-- Services Section -->
+        <!-- CORRECTED: Interactive Accordion Services Section -->
         <section id="services" class="services-section">
             <div class="container">
                 <h2 class="section-title animate-on-scroll fade-in-up">Our Comprehensive Services</h2>
-                <div class="services-grid">
-                    <!-- Service Card 1 -->
-                    <div class="service-card animate-on-scroll fade-in-up">
-                        <div class="service-icon"><i class="fas fa-broom"></i></div>
-                        <h3 class="service-title">Janitorial & Cleaning</h3>
-                        <p class="service-description">Meticulous cleaning for residential and commercial properties, ensuring a spotless and healthy environment.</p>
+                <div class="accordion-container">
+                    <!-- Accordion Item 1 -->
+                    <div class="accordion-item animate-on-scroll fade-in-up">
+                        <button class="accordion-trigger" aria-expanded="false" aria-controls="service-panel-1">
+                            <span class="accordion-title"><i class="fas fa-broom"></i> Janitorial & Cleaning</span>
+                            <i class="fas fa-chevron-down accordion-icon"></i>
+                        </button>
+                        <div id="service-panel-1" class="accordion-panel">
+                            <ul>
+                                <li><strong>Residential Cleaning:</strong> Scheduled home cleaning, deep cleaning, move-in/move-out services.</li>
+                                <li><strong>Commercial Cleaning:</strong> Office buildings, retail spaces, post-construction cleanup.</li>
+                                <li><strong>Specialized Services:</strong> Window washing, floor polishing, upholstery cleaning.</li>
+                            </ul>
+                        </div>
                     </div>
-                    <!-- Service Card 2 -->
-                    <div class="service-card animate-on-scroll fade-in-up" style="animation-delay: 0.2s;">
-                        <div class="service-icon"><i class="fas fa-building-shield"></i></div>
-                        <h3 class="service-title">Facility Management</h3>
-                        <p class="service-description">Comprehensive management solutions to keep your buildings running smoothly and efficiently.</p>
+                    <!-- Accordion Item 2 -->
+                    <div class="accordion-item animate-on-scroll fade-in-up">
+                        <button class="accordion-trigger" aria-expanded="false" aria-controls="service-panel-2">
+                            <span class="accordion-title"><i class="fas fa-building-shield"></i> Facility Management</span>
+                            <i class="fas fa-chevron-down accordion-icon"></i>
+                        </button>
+                        <div id="service-panel-2" class="accordion-panel">
+                             <p>End-to-end maintenance solutions including HVAC, plumbing, electrical, and groundskeeping to ensure your property operates at peak efficiency.</p>
+                        </div>
                     </div>
-                    <!-- Service Card 3 -->
-                    <div class="service-card animate-on-scroll fade-in-up" style="animation-delay: 0.4s;">
-                        <div class="service-icon"><i class="fas fa-bug-slash"></i></div>
-                        <h3 class="service-title">Fumigation & Pest Control</h3>
-                        <p class="service-description">Effective and safe pest eradication services to protect your property and health.</p>
-                    </div>
-                    <!-- Service Card 4 -->
-                    <div class="service-card animate-on-scroll fade-in-up" style="animation-delay: 0.6s;">
-                        <div class="service-icon"><i class="fas fa-shopping-cart"></i></div>
-                        <h3 class="service-title">Cleaning Supplies</h3>
-                        <p class="service-description">Sale of professional-grade cleaning products and equipment for your own use.</p>
+                    <!-- Accordion Item 3 -->
+                    <div class="accordion-item animate-on-scroll fade-in-up">
+                        <button class="accordion-trigger" aria-expanded="false" aria-controls="service-panel-3">
+                            <span class="accordion-title"><i class="fas fa-bug-slash"></i> Fumigation & Pest Control</span>
+                            <i class="fas fa-chevron-down accordion-icon"></i>
+                        </button>
+                        <div id="service-panel-3" class="accordion-panel">
+                            <p>Safe and effective eradication of pests for homes, offices, and hotels, compliant with health and safety standards.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
         
-        <!-- Wow Factor: Before & After Slider -->
+        <!-- CORRECT: Wow Factor: Before & After Slider -->
         <section id="wow-factor" class="wow-section">
             <div class="container animate-on-scroll fade-in">
                 <h2 class="section-title">The KHC Difference, Visualized.</h2>
                 <div class="comparison-slider">
                     <div class="comparison-image before-image">
-                        <img src="https://images.unsplash.com/photo-1585421514738-017996340317?q=80&w=2070&auto=format&fit=crop" alt="Messy room before cleaning">
+                        <img src="https://images.unsplash.com/photo-1616484173744-4a8a25d11e74?q=80&w=2070&auto=format&fit=crop" alt="Dirty, cluttered kitchen before cleaning">
                         <p class="image-label">Before</p>
                     </div>
                     <div class="comparison-image after-image">
-                        <img src="https://images.unsplash.com/photo-1560185127-6ed189bf02a4?q=80&w=2070&auto=format&fit=crop" alt="Clean and tidy room">
+                        <img src="https://images.unsplash.com/photo-1600585152225-3579fe9d7ae2?q=80&w=2070&auto=format&fit=crop" alt="Pristine, sparkling clean kitchen">
                         <p class="image-label">After</p>
                     </div>
                     <input type="range" min="0" max="100" value="50" class="slider" aria-label="Compare before and after images">
@@ -71,7 +81,7 @@ import Layout from '../layouts/Layout.astro';
             </div>
         </section>
 
-        <!-- About Us Section -->
+        <!-- CORRECTED: About Us Section with Carousel -->
         <section id="about" class="about-section">
             <div class="container about-content">
                 <div class="about-text animate-on-scroll fade-in-up">
@@ -79,28 +89,33 @@ import Layout from '../layouts/Layout.astro';
                     <p>Founded on the principle of delivering excellence, KHC Global Services has grown to become a leading name in Nigeria’s maintenance industry. Our team is our greatest asset—fully trained, insured, and passionate about creating clean, healthy, and safe environments. We combine modern technology with a meticulous work ethic to deliver results that don't just meet expectations, but exceed them.</p>
                     <p>Our commitment is to you: your time, your health, and the value of your property. We are more than a service provider; we are your dedicated partner in property care.</p>
                 </div>
-                <div class="about-image animate-on-scroll fade-in-up" style="animation-delay: 0.2s;">
-                    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=2070&auto=format&fit=crop" alt="KHC professional team members smiling">
+                <!-- The carousel now correctly replaces the old image div -->
+                <div class="about-image-carousel animate-on-scroll fade-in-up" style="animation-delay: 0.2s;">
+                    <div class="carousel-track">
+                        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=2070&auto=format&fit=crop" alt="KHC professional team members smiling">
+                        <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop" alt="Professional cleaner in a commercial building setting">
+                        <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=2070&auto=format&fit=crop" alt="Hotel room being professionally cleaned">
+                        <img src="https://images.unsplash.com/photo-1596637812239-0873a5314732?q=80&w=1974&auto=format&fit=crop" alt="Male cleaner mopping a large floor">
+                    </div>
+                    <button class="carousel-button prev"><i class="fas fa-chevron-left"></i></button>
+                    <button class="carousel-button next"><i class="fas fa-chevron-right"></i></button>
                 </div>
             </div>
         </section>
 
-        <!-- Testimonials Section -->
+        <!-- CORRECT: Testimonials Section -->
         <section id="testimonials" class="testimonials-section">
             <div class="container">
                 <h2 class="section-title animate-on-scroll fade-in-up">What Our Clients Say</h2>
                 <div class="testimonials-grid">
-                    <!-- Testimonial 1 -->
                     <div class="testimonial-card animate-on-scroll fade-in-up">
                         <p class="testimonial-quote">"KHC transformed our office space. Their professionalism and attention to detail are unmatched. Highly recommended!"</p>
                         <p class="testimonial-author">- Facility Manager, Lagos</p>
                     </div>
-                    <!-- Testimonial 2 -->
                     <div class="testimonial-card animate-on-scroll fade-in-up" style="animation-delay: 0.2s;">
                         <p class="testimonial-quote">"As a busy homeowner, their service is a lifesaver. I got my weekends back and my home has never looked better. Trustworthy team."</p>
                         <p class="testimonial-author">- Adeola J., Homeowner</p>
                     </div>
-                     <!-- Testimonial 3 -->
                     <div class="testimonial-card animate-on-scroll fade-in-up" style="animation-delay: 0.4s;">
                         <p class="testimonial-quote">"The fumigation service was thorough and efficient. The KHC team was professional and explained the process clearly."</p>
                         <p class="testimonial-author">- Hotel Manager, Ikeja</p>
@@ -109,21 +124,21 @@ import Layout from '../layouts/Layout.astro';
             </div>
         </section>
 
-<!-- Trusted Partners Section -->
-<section id="partners" class="partners-section">
-    <div class="container">
-        <h2 class="section-title animate-on-scroll fade-in-up">Powering Clean Spaces For</h2>
-        <div class="logos-grid animate-on-scroll fade-in-up">
-            <img src="https://logodix.com/logo/2101968.png" alt="Partner Logo 1">
-            <img src="https://logodix.com/logo/2101979.png" alt="Partner Logo 2">
-            <img src="https://logodix.com/logo/2101994.png" alt="Partner Logo 3">
-            <img src="https://logodix.com/logo/2102005.png" alt="Partner Logo 4">
-            <img src="https://logodix.com/logo/2102010.png" alt="Partner Logo 5">
-        </div>
-    </div>
-</section>
+        <!-- CORRECT: Trusted Partners Section -->
+        <section id="partners" class="partners-section">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll fade-in-up">Powering Clean Spaces For</h2>
+                <div class="logos-grid animate-on-scroll fade-in-up">
+                    <img src="https://logodix.com/logo/2101968.png" alt="Partner Logo 1">
+                    <img src="https://logodix.com/logo/2101979.png" alt="Partner Logo 2">
+                    <img src="https://logodix.com/logo/2101994.png" alt="Partner Logo 3">
+                    <img src="https://logodix.com/logo/2102005.png" alt="Partner Logo 4">
+                    <img src="https://logodix.com/logo/2102010.png" alt="Partner Logo 5">
+                </div>
+            </div>
+        </section>
 
-        <!-- Contact Section -->
+        <!-- CORRECTED: Contact Section with Netlify Form Handling -->
         <section id="contact" class="contact-section">
             <div class="container contact-wrapper">
                 <div class="contact-info animate-on-scroll fade-in-up">
@@ -135,7 +150,9 @@ import Layout from '../layouts/Layout.astro';
                         <li><i class="fas fa-map-marker-alt"></i> Ikeja, Lagos, Nigeria</li>
                     </ul>
                 </div>
-                <form class="contact-form animate-on-scroll fade-in-up" style="animation-delay: 0.2s;">
+                <!-- The form now has the required attributes for Netlify -->
+                <form name="contact" method="POST" data-netlify="true" class="contact-form animate-on-scroll fade-in-up" style="animation-delay: 0.2s;">
+                    <input type="hidden" name="form-name" value="contact" />
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" id="name" name="name" required>
