@@ -1,6 +1,5 @@
 ---
-// CC's Note: This is the final, correct homepage content.
-// It imports the master Layout and fills its <slot /> with all enhancements.
+// CC's Note: V3 - Services architected to match brand reality.
 import Layout from '../layouts/Layout.astro';
 ---
 
@@ -18,60 +17,72 @@ import Layout from '../layouts/Layout.astro';
             </div>
         </section>
 
-        <!-- CORRECTED: Interactive Accordion Services Section -->
+        <!-- Trust Badges Section -->
+        <section id="trust-badges" class="trust-section">
+            <div class="container">
+                <h2 class="section-title-subtle animate-on-scroll fade-in-up">KHC GLOBAL SERVICES YOU CAN TRUST</h2>
+                <div class="trust-grid">
+                    <div class="trust-item animate-on-scroll fade-in-up" style="animation-delay: 0.1s;">
+                        <i class="fas fa-check-circle"></i><span>Locally Owned</span>
+                    </div>
+                    <div class="trust-item animate-on-scroll fade-in-up" style="animation-delay: 0.2s;">
+                        <i class="fas fa-check-circle"></i><span>Fully Insured</span>
+                    </div>
+                    <div class="trust-item animate-on-scroll fade-in-up" style="animation-delay: 0.3s;">
+                        <i class="fas fa-check-circle"></i><span>Supplies Provided</span>
+                    </div>
+                    <div class="trust-item animate-on-scroll fade-in-up" style="animation-delay: 0.4s;">
+                        <i class="fas fa-check-circle"></i><span>Trusted & Experienced</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- UPDATED & RE-ARCHITECTED: Services Section -->
         <section id="services" class="services-section">
             <div class="container">
-                <h2 class="section-title animate-on-scroll fade-in-up">Our Comprehensive Services</h2>
-                <div class="accordion-container">
-                    <!-- Accordion Item 1 -->
-                    <div class="accordion-item animate-on-scroll fade-in-up">
-                        <button class="accordion-trigger" aria-expanded="false" aria-controls="service-panel-1">
-                            <span class="accordion-title"><i class="fas fa-broom"></i> Janitorial & Cleaning</span>
-                            <i class="fas fa-chevron-down accordion-icon"></i>
-                        </button>
-                        <div id="service-panel-1" class="accordion-panel">
-                            <ul>
-                                <li><strong>Residential Cleaning:</strong> Scheduled home cleaning, deep cleaning, move-in/move-out services.</li>
-                                <li><strong>Commercial Cleaning:</strong> Office buildings, retail spaces, post-construction cleanup.</li>
-                                <li><strong>Specialized Services:</strong> Window washing, floor polishing, upholstery cleaning.</li>
-                            </ul>
-                        </div>
+                <h2 class="section-title animate-on-scroll fade-in-up">Services We Offer</h2>
+                <p class="section-subtitle animate-on-scroll fade-in-up">Get the Deep Clean Your Home Needs with The Cleaning Authority</p>
+                <div class="services-grid-final">
+                    <!-- Service Card 1 -->
+                    <div class="service-card-final animate-on-scroll fade-in-up">
+                        <div class="service-icon-final"><i class="fas fa-house-user"></i></div>
+                        <h3 class="service-title-final">House Cleaning & Sanitizing</h3>
+                        <p class="service-description-final">Our unique Detail-Clean Rotation System ensures that your home is cleaned to the highest standard.</p>
                     </div>
-                    <!-- Accordion Item 2 -->
-                    <div class="accordion-item animate-on-scroll fade-in-up">
-                        <button class="accordion-trigger" aria-expanded="false" aria-controls="service-panel-2">
-                            <span class="accordion-title"><i class="fas fa-building-shield"></i> Facility Management</span>
-                            <i class="fas fa-chevron-down accordion-icon"></i>
-                        </button>
-                        <div id="service-panel-2" class="accordion-panel">
-                             <p>End-to-end maintenance solutions including HVAC, plumbing, electrical, and groundskeeping to ensure your property operates at peak efficiency.</p>
-                        </div>
+                    <!-- Service Card 2 -->
+                    <div class="service-card-final animate-on-scroll fade-in-up" style="animation-delay: 0.2s;">
+                        <div class="service-icon-final"><i class="fas fa-building"></i></div>
+                        <h3 class="service-title-final">Apartment Cleaning & Sanitizing</h3>
+                        <p class="service-description-final">Our thorough apartment cleaning services never miss the little details in your space!</p>
                     </div>
-                    <!-- Accordion Item 3 -->
-                    <div class="accordion-item animate-on-scroll fade-in-up">
-                        <button class="accordion-trigger" aria-expanded="false" aria-controls="service-panel-3">
-                            <span class="accordion-title"><i class="fas fa-bug-slash"></i> Fumigation & Pest Control</span>
-                            <i class="fas fa-chevron-down accordion-icon"></i>
-                        </button>
-                        <div id="service-panel-3" class="accordion-panel">
-                            <p>Safe and effective eradication of pests for homes, offices, and hotels, compliant with health and safety standards.</p>
-                        </div>
+                    <!-- Service Card 3 -->
+                    <div class="service-card-final animate-on-scroll fade-in-up" style="animation-delay: 0.4s;">
+                        <div class="service-icon-final"><i class="fas fa-truck-moving"></i></div>
+                        <h3 class="service-title-final">Move In / Move Out Cleaning</h3>
+                        <p class="service-description-final">Moving can be messy but our cleaning professionals ensure a spotless clean.</p>
+                    </div>
+                    <!-- Service Card 4 -->
+                    <div class="service-card-final animate-on-scroll fade-in-up" style="animation-delay: 0.6s;">
+                        <div class="service-icon-final"><i class="fas fa-spray-can-sparkles"></i></div>
+                        <h3 class="service-title-final">One-Time Cleaning Services</h3>
+                        <p class="service-description-final">We proudly offer customizable one-time cleaning programs to suit your needs.</p>
                     </div>
                 </div>
             </div>
         </section>
         
-        <!-- CORRECT: Wow Factor: Before & After Slider -->
+        <!-- Wow Factor: Before & After Slider -->
         <section id="wow-factor" class="wow-section">
             <div class="container animate-on-scroll fade-in">
                 <h2 class="section-title">The KHC Difference, Visualized.</h2>
                 <div class="comparison-slider">
                     <div class="comparison-image before-image">
-                        <img src="https://images.unsplash.com/photo-1616484173744-4a8a25d11e74?q=80&w=2070&auto=format&fit=crop" alt="Dirty, cluttered kitchen before cleaning">
+                        <img src="https://images.unsplash.com/photo-1616484173744-4a8a25d11e74?q=80&w=2070&auto=format&fit=crop" alt="Dirty kitchen before cleaning">
                         <p class="image-label">Before</p>
                     </div>
                     <div class="comparison-image after-image">
-                        <img src="https://images.unsplash.com/photo-1600585152225-3579fe9d7ae2?q=80&w=2070&auto=format&fit=crop" alt="Pristine, sparkling clean kitchen">
+                        <img src="https://images.unsplash.com/photo-1600585152225-3579fe9d7ae2?q=80&w=2070&auto=format&fit=crop" alt="Pristine kitchen after cleaning">
                         <p class="image-label">After</p>
                     </div>
                     <input type="range" min="0" max="100" value="50" class="slider" aria-label="Compare before and after images">
@@ -81,21 +92,21 @@ import Layout from '../layouts/Layout.astro';
             </div>
         </section>
 
-        <!-- CORRECTED: About Us Section with Carousel -->
+        <!-- About Us Section -->
         <section id="about" class="about-section">
             <div class="container about-content">
                 <div class="about-text animate-on-scroll fade-in-up">
                     <h2 class="section-title">Trustworthy, Efficient, Meticulous</h2>
-                    <p>Founded on the principle of delivering excellence, KHC Global Services has grown to become a leading name in Nigeria’s maintenance industry. Our team is our greatest asset—fully trained, insured, and passionate about creating clean, healthy, and safe environments. We combine modern technology with a meticulous work ethic to deliver results that don't just meet expectations, but exceed them.</p>
-                    <p>Our commitment is to you: your time, your health, and the value of your property. We are more than a service provider; we are your dedicated partner in property care.</p>
+                    <p>Founded on the principle of delivering excellence, KHC Global Services has grown to become a leading name in Nigeria’s maintenance industry. Our team is our greatest asset—fully trained, insured, and passionate about creating clean, healthy, and safe environments.</p>
+                    <p>We combine modern technology with a meticulous work ethic to deliver results that don't just meet expectations, but exceed them. We are your dedicated partner in property care.</p>
                 </div>
-                <!-- The carousel now correctly replaces the old image div -->
+                <!-- Image Carousel -->
                 <div class="about-image-carousel animate-on-scroll fade-in-up" style="animation-delay: 0.2s;">
                     <div class="carousel-track">
-                        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=2070&auto=format&fit=crop" alt="KHC professional team members smiling">
-                        <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop" alt="Professional cleaner in a commercial building setting">
-                        <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=2070&auto=format&fit=crop" alt="Hotel room being professionally cleaned">
-                        <img src="https://images.unsplash.com/photo-1596637812239-0873a5314732?q=80&w=1974&auto=format&fit=crop" alt="Male cleaner mopping a large floor">
+                        <img src="https://media.istockphoto.com/id/1347511516/photo/portrait-of-a-confident-young-african-american-woman-working-in-a-cleaning-company.jpg?s=612x612&w=0&k=20&c=6QK45w2uDA7H2q5Dpqh-q2o0Fw_1ka20sLxg523mJZA=" alt="Professional Black female cleaner smiling">
+                        <img src="https://media.istockphoto.com/id/1364539327/photo/portrait-of-a-group-of-diverse-cleaners-standing-together-in-an-office-and-looking-at-the.jpg?s=612x612&w=0&k=20&c=cTUBNvHy1kHjS5L9oKqBxsjJpD9LSv6M2x_JpT0Hh4M=" alt="Diverse professional cleaning team in an office">
+                        <img src="https://media.istockphoto.com/id/1307351651/photo/afro-woman-cleaning-with-her-team.jpg?s=612x612&w=0&k=20&c=LdyP-8BjjnLQ2G-sCmpE69z2w9E4Wf090L0xR4bWxzo=" alt="Cleaning team leader instructing her crew in a modern home">
+                        <img src="https://media.istockphoto.com/id/1399042935/photo/portrait-of-a-black-janitor-in-the-office.jpg?s=612x612&w=0&k=20&c=4y45OQ-L5s_g-5b9wA7SGrh9Yy7f8-3MMtO74uJ0m_A=" alt="Professional Black male cleaner with equipment">
                     </div>
                     <button class="carousel-button prev"><i class="fas fa-chevron-left"></i></button>
                     <button class="carousel-button next"><i class="fas fa-chevron-right"></i></button>
@@ -103,12 +114,12 @@ import Layout from '../layouts/Layout.astro';
             </div>
         </section>
 
-        <!-- CORRECT: Testimonials Section -->
+        <!-- Testimonials Section -->
         <section id="testimonials" class="testimonials-section">
             <div class="container">
                 <h2 class="section-title animate-on-scroll fade-in-up">What Our Clients Say</h2>
                 <div class="testimonials-grid">
-                    <div class="testimonial-card animate-on-scroll fade-in-up">
+                     <div class="testimonial-card animate-on-scroll fade-in-up">
                         <p class="testimonial-quote">"KHC transformed our office space. Their professionalism and attention to detail are unmatched. Highly recommended!"</p>
                         <p class="testimonial-author">- Facility Manager, Lagos</p>
                     </div>
@@ -124,21 +135,19 @@ import Layout from '../layouts/Layout.astro';
             </div>
         </section>
 
-        <!-- CORRECT: Trusted Partners Section -->
+        <!-- Trusted Partners Section -->
         <section id="partners" class="partners-section">
             <div class="container">
-                <h2 class="section-title animate-on-scroll fade-in-up">Powering Clean Spaces For</h2>
+                <h2 class="section-title animate-on-scroll fade-in-up">Our Trusted Supply Partners</h2>
                 <div class="logos-grid animate-on-scroll fade-in-up">
-                    <img src="https://logodix.com/logo/2101968.png" alt="Partner Logo 1">
-                    <img src="https://logodix.com/logo/2101979.png" alt="Partner Logo 2">
-                    <img src="https://logodix.com/logo/2101994.png" alt="Partner Logo 3">
-                    <img src="https://logodix.com/logo/2102005.png" alt="Partner Logo 4">
-                    <img src="https://logodix.com/logo/2102010.png" alt="Partner Logo 5">
+                    <img src="https://i.imgur.com/2s45XyE.png" alt="Robert Scott Logo">
+                    <img src="https://i.imgur.com/u15Yg4X.png" alt="Contico Logo">
+                    <img src="https://i.imgur.com/BfA2d2m.png" alt="EFG Logo">
                 </div>
             </div>
         </section>
 
-        <!-- CORRECTED: Contact Section with Netlify Form Handling -->
+        <!-- Contact Section -->
         <section id="contact" class="contact-section">
             <div class="container contact-wrapper">
                 <div class="contact-info animate-on-scroll fade-in-up">
@@ -150,7 +159,6 @@ import Layout from '../layouts/Layout.astro';
                         <li><i class="fas fa-map-marker-alt"></i> Ikeja, Lagos, Nigeria</li>
                     </ul>
                 </div>
-                <!-- The form now has the required attributes for Netlify -->
                 <form name="contact" method="POST" data-netlify="true" class="contact-form animate-on-scroll fade-in-up" style="animation-delay: 0.2s;">
                     <input type="hidden" name="form-name" value="contact" />
                     <div class="form-group">
@@ -163,11 +171,12 @@ import Layout from '../layouts/Layout.astro';
                     </div>
                     <div class="form-group">
                         <label for="service">Service of Interest</label>
+                        <!-- UPDATED: Contact Form Dropdown -->
                         <select id="service" name="service">
-                            <option>General Cleaning</option>
-                            <option>Facility Management</option>
-                            <option>Fumigation</option>
-                            <option>Supply Purchase</option>
+                            <option>House Cleaning & Sanitizing</option>
+                            <option>Apartment Cleaning & Sanitizing</option>
+                            <option>Move In / Move Out Cleaning</option>
+                            <option>One-Time Cleaning Service</option>
                         </select>
                     </div>
                     <div class="form-group">
